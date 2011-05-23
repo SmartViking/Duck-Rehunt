@@ -1,4 +1,11 @@
 #!/usr/bin/env python
+"""
+Copyright 2011 Michael Bachmann
+
+This program is distributed under the terms of the GNU
+General Public License
+"""
+
 import pygame, random, sys
 
 fullscreen = 0
