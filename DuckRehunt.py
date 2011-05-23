@@ -1,19 +1,22 @@
-import pygame, random
+#!/usr/bin/env python
+import pygame, random, sys
+
+fullscreen = 0
+for arg in sys.argv:
+    if arg == "--fullscreen":
+        fullscreen = 1
+
 pygame.init()
 
 from DuckLib import *
-#from WorldState import *
 
+if fullscreen:
+    screen = pygame.display.set_mode((640,480),pygame.FULLSCREEN)
+else:
+    screen = pygame.display.set_mode((640,480))
 
-
-screen = pygame.display.set_mode((640,480))
 screen_dim = screen.get_rect()
 
-##class World():
-##
-##    def __init__(self):
-##        self.TITLE = 1
-##        self.
 
 def main():
 
@@ -50,8 +53,8 @@ def main():
         pygame.mouse.set_visible(False)
         
         for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                    keepGoing = False
+            if event.type == pygame.QUIT or event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
+                keepGoing = False
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 gunshot.play()
                 flash.add(Flash())
